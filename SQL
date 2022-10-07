@@ -1,0 +1,83 @@
+README
+
+Weightlifting Data
+## This personal project has been months in the making. I wanted a better format to track my athletes progress throughout the years of weightlifting.
+I wanted all of the data in one spot so I could quickly find the information I wanted and it would not be in 3 different notebooks. 
+
+## Brief summary of the sport of weightlifting. 
+	Athletes are placed into weightclasses after weighing in prior to the meet starting. They then have 3 attempts at lifting the most in the snatch (barbell movement where the bar goes from ground to over head in 1 movement) and 3 attempts at lifting the most in clean & jerk (barbell movement where the bar goes from the floor to the shoulders, then from shoulders to overhead). The heaviest successful lift for each movement is added together to get the total. ##
+
+Without farther ado, my code for building my weightlifting database.
+
+#First, I created a table to hold the total lift information.
+
+CREATE TABLE totals (
+first_name VARCHAR (50),
+last_name VARCHAR (50),
+meet_name VARCHAR(50),
+year SMALLINT,
+snatch_max SMALLINT,
+clean_jerk_max SMALLINT,
+lift_total SMALLINT,
+weight_class SMALLINT)
+
+After the table had been created, I started imputting my data.
+
+example syntax used for imput
+
+INSERT INTO totals(
+'Laurel',
+'Smoak,',
+'Harrisburg',
+'2018',
+'53',
+'68',
+'121',
+'64')
+
+## I used this syntax to insert all the data into the table. Resulted in 8 rows per athlete; 16 rows total.
+
+## Next I added an individual lift attempt table to track the makes and or miss for each attempt at each meet. 
+
+Syntax used
+
+CREATE TABLE snatch_attempts(
+athlete_name VARCHAR (50),
+snatch_1 SMALLINT,
+result_1 CHAR (15),
+snatch_2 SMALLINT,
+result_2 CHAR (15),
+snatch_3 SMALLINT,
+result_3 CHAR (15),
+meet_name VARCHAR (50)
+)
+
+Syntax used to add data
+
+INSERT INTO snatch_attempts
+VALUES
+('Smoak',
+50,
+'Miss'
+51,
+'Make',
+53,
+'Make'
+'Harrisburg')
+
+I followed this syntax to add the complete data to the table.
+
+Finally I created a table to house clean and jerk attempts
+
+Syntax used
+
+CREATE TABLE clean_jerk_attempts(
+athlete_name VARCHAR (50),
+clean_jerk_1 SMALLINT,
+result_1 CHAR (15),
+clean_jerk_2 SMALLINT,
+result_2 CHAR (15),
+clean_jerk_3 SMALLINT,
+result_3 CHAR (15),
+meet_name VARCHAR (50)
+)
